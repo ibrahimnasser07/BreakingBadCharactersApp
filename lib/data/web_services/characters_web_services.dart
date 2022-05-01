@@ -15,13 +15,11 @@ class CharactersWebServices {
     dio = Dio(options);
   }
 
-  Future<List<Map<String, dynamic>>> getAllCharacters() async {
+  Future<List<dynamic>> getAllCharacters() async {
     try {
       Response response = await dio.get('characters');
-      print(response.data.toString());
-      return response.data;
+      return response.data as List<dynamic>;
     } catch (e) {
-      print(e.toString());
       return [];
     }
   }

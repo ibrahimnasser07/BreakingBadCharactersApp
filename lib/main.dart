@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:breaking_bad_characters/constants/my_colors.dart';
 import 'package:breaking_bad_characters/constants/strings.dart';
 import 'package:flutter/material.dart';
 
@@ -22,6 +23,12 @@ class BreakingBapApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: appRouter.generateRoute,
       initialRoute: charactersScreen,
+      theme: ThemeData(
+        //Changing the overscroll glow effect color.
+        colorScheme: ColorScheme.fromSwatch(
+          accentColor: MyColors.myYellow
+        )
+      ),
     );
   }
 }
