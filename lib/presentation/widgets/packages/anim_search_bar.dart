@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:breaking_bad_characters/constants/my_colors.dart';
+import 'package:breaking_bad_characters/presentation/screens/characters_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -24,7 +25,7 @@ class AnimSearchBar extends StatefulWidget {
   final Icon? backIcon;
   final String helpText;
   final int animationDurationInMilli;
-  final onSuffixTap;
+  final VoidCallback onSuffixTap;
   final bool rtl;
   final bool autoFocus;
   final TextStyle? style;
@@ -273,12 +274,11 @@ class _AnimSearchBarState extends State<AnimSearchBar>
                                 widget.onSuffixTap();
 
                                 ///closeSearchOnSuffixTap will execute if it's true
-                                if (widget.closeSearchOnSuffixTap) {
-                                  unfocusKeyboard();
-                                  setState(() {
-                                    toggle = 0;
-                                  });
-                                }
+                                unfocusKeyboard();
+                                setState(() {
+                                  isSearch = false;
+                                  toggle = 0;
+                                });
                               } catch (e) {
                                 print(e);
                               }
@@ -291,6 +291,7 @@ class _AnimSearchBarState extends State<AnimSearchBar>
 
                         toggle = 1;
                         setState(() {
+                          isSearch = true;
                           ///if the autoFocus is true, the keyboard will pop open, automatically
                           if (widget.autoFocus) {
                             FocusScope.of(context).requestFocus(focusNode);
@@ -305,13 +306,12 @@ class _AnimSearchBarState extends State<AnimSearchBar>
                           widget.onSuffixTap();
 
                           ///closeSearchOnSuffixTap will execute if it's true
-                          if (widget.closeSearchOnSuffixTap) {
-                            Navigator.pop(context);
-                            unfocusKeyboard();
-                            setState(() {
-                              toggle = 0;
-                            });
-                          }
+                          Navigator.pop(context);
+                          unfocusKeyboard();
+                          setState(() {
+                            isSearch = false;
+                            toggle = 0;
+                          });
                         } catch (e) {
                           print(e);
                         }

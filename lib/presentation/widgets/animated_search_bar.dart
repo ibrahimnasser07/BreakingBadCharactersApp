@@ -1,5 +1,5 @@
 import 'package:breaking_bad_characters/constants/my_colors.dart';
-import 'package:breaking_bad_characters/presentation/widgets/anim_search_bar.dart';
+import 'package:breaking_bad_characters/presentation/widgets/packages/anim_search_bar.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedSearchBar extends StatefulWidget {
@@ -38,7 +38,6 @@ class _AnimatedSearchBarState extends State<AnimatedSearchBar> {
         suffixIcon: const Icon(Icons.clear, color: MyColors.myGrey),
         backIcon: const Icon(Icons.arrow_back_rounded, color: MyColors.myGrey),
         color: const Color.fromARGB(255, 255, 238, 86),
-        closeSearchOnSuffixTap: true,
         helpText: "Search a character...",
         style: const TextStyle(
           color: MyColors.myGrey,
