@@ -6,16 +6,17 @@ import 'package:meta/meta.dart';
 part 'characters_state.dart';
 
 class CharactersCubit extends Cubit<CharactersState> {
-  final CharactersRepo charactersRepo;
-  List<Character> _characters = [];
-
   CharactersCubit(this.charactersRepo) : super(CharactersInitial());
+
+  final CharactersRepo charactersRepo;
+  List<Character> characters = [];
+  
 
   List<Character> getAllCharacters() {
     charactersRepo.getAllCharacters().then((characters) {
       emit(CharactersLoaded(characters));
-      _characters = characters;
+      this.characters = characters;
     });
-    return _characters;
+    return characters;
   }
 }

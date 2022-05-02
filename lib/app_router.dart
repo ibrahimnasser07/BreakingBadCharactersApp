@@ -1,8 +1,8 @@
 import 'package:breaking_bad_characters/business_logic/cubit/characters_cubit.dart';
 import 'package:breaking_bad_characters/data/repository/characters_repo.dart';
 import 'package:breaking_bad_characters/data/web_services/characters_web_services.dart';
-import 'package:breaking_bad_characters/presentation/screens/characters.dart';
-import 'package:breaking_bad_characters/presentation/screens/characters_details.dart';
+import 'package:breaking_bad_characters/presentation/screens/characters_screen.dart';
+import 'package:breaking_bad_characters/presentation/screens/characters_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'constants/strings.dart';
