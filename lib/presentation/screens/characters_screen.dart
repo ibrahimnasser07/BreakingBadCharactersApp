@@ -14,7 +14,6 @@ bool isSearch = false;
 class CharactersScreen extends StatelessWidget {
   const CharactersScreen({Key? key}) : super(key: key);
 
-  
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -22,10 +21,11 @@ class CharactersScreen extends StatelessWidget {
         if (isSearch) {
           return true;
         } else {
-         return onWillPop(context);
+          return onWillPop(context);
         }
       },
       child: Scaffold(
+        backgroundColor: MyColors.myGrey,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: MyColors.myYellow,
@@ -56,12 +56,20 @@ class BlocWidget extends StatefulWidget {
 class _BlocWidgetState extends State<BlocWidget> {
   late List<Character> allCharacters;
   late List<Character> searchedCharacters;
-  
 
   @override
   void initState() {
     super.initState();
     BlocProvider.of<CharactersCubit>(context).getAllCharacters();
+    searchController.addListener(_onSearched);
+  }
+
+  void _onSearched() {
+    var _pattern = RegExp(searchController.text);
+    searchedCharacters = allCharacters.where((character) {
+      return _pattern.hasMatch(character.name.toLowerCase());
+    }).toList();
+    setState(() {});
   }
 
   @override
@@ -70,11 +78,21 @@ class _BlocWidgetState extends State<BlocWidget> {
       builder: (context, state) {
         if (state is CharactersLoaded) {
           allCharacters = (state).characters;
-          return LoadedWidgetsGridView(allCharacters: allCharacters);
+          return LoadedWidgetsGridView(
+            characters: isSearch ? searchedCharacters : allCharacters,
+          );
         } else {
           return const LoadingCircularProgressIndicator();
         }
       },
     );
+  }
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is removed from the
+    // widget tree.
+    searchController.dispose();
+    super.dispose();
   }
 }

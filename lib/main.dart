@@ -25,7 +25,7 @@ class BreakingBapApp extends StatelessWidget {
       initialRoute: charactersScreen,
       theme: ThemeData(
         //Changing the overscroll glow effect color.
-        colorScheme: ColorScheme.fromSwatch(
+        colorScheme: ColorScheme.fromSwatch( 
           accentColor: MyColors.myYellow
         )
       ),
