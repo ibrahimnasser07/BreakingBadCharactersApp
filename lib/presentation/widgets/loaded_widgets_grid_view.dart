@@ -11,23 +11,26 @@ class LoadedWidgetsGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Container(
-        color: MyColors.myGrey,
-        child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: 0.6,
-            crossAxisSpacing: 1,
-            mainAxisSpacing: 1,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 4),
+        child: Container(
+          color: MyColors.myGrey,
+          child: GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 0.6,
+              crossAxisSpacing: 1,
+              mainAxisSpacing: 1,
+            ),
+            shrinkWrap: true,
+            physics: const ClampingScrollPhysics(),
+            itemCount: characters.length,
+            itemBuilder: (context, index) {
+              return CharacterItem(
+                character: characters[index],
+              );
+            },
           ),
-          shrinkWrap: true,
-          physics: const ClampingScrollPhysics(),
-          itemCount: characters.length,
-          itemBuilder: (context, index) {
-            return CharacterItem(
-              character: characters[index],
-            );
-          },
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:breaking_bad_characters/business_logic/cubit/characters_cubit.dart';
+import 'package:breaking_bad_characters/data/models/characters.dart';
 import 'package:breaking_bad_characters/data/repository/characters_repo.dart';
 import 'package:breaking_bad_characters/data/web_services/characters_web_services.dart';
 import 'package:breaking_bad_characters/presentation/screens/characters_screen.dart';
@@ -26,8 +27,13 @@ class AppRouter {
           ),
         );
       case characterDetailsScreen:
+        final selectedCharacter = settings.arguments as Character;
         return MaterialPageRoute(
-            builder: (_) => const CharacterDetailsScreen());
+          builder: (_) => BlocProvider(
+            create: (context) => CharactersCubit(charactersRepo),
+            child: CharacterDetailsScreen(character: selectedCharacter),
+          ),
+        );
       default:
         return null;
     }
