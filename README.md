@@ -1,16 +1,19 @@
-# breaking_bad_characters
+# Breaking Bad Characters
 
 An app showing all breaking bad characters with images and description about all of them.
 
-## Getting Started
+#### What is this app about?
 
-This project is a starting point for a Flutter application.
+- Work with RESTful APIs
+- Use BLOC luberary as a state managment solution
+- Orginize the code useing the BLOC pattern
+- Create reusable components
+- Making a clean design using flutter widgets and packages
 
-A few resources to get you started if this is your first Flutter project:
+#### Images
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+| ..  | ..  | .. |
+| :-----------: |:---------------:| :-----------: |
+| <img src="assets/images/WhatsApp Image 2022-10-12 at 9.32.48 PM.jpeg" width="250" height="500"/> | <img src="assets/images/WhatsApp Image 2022-10-12 at 9.32.50 PM.jpeg" width="250" height="500"/> | <img src="assets/images/WhatsApp Image 2022-10-12 at 9.32.51 PM (1).jpeg" width="250" height="500"/> |
+| <img src="assets/images/WhatsApp Image 2022-10-12 at 9.32.51 PM (2).jpeg" width="250" height="500"/> | <img src="assets/images/WhatsApp Image 2022-10-12 at 9.32.51 PM (3).jpeg" width="250" height="500"/> | <img src="assets/images/WhatsApp Image 2022-10-12 at 9.32.51 PM (4).jpeg" width="250" height="500"/> |
+| <img src="assets/images/WhatsApp Image 2022-10-12 at 9.32.51 PM.jpeg" width="250" height="500"/> | <img src="assets/images/WhatsApp Image 2022-10-12 at 9.47.56 PM.jpeg" width="250" height="500"/> | <img src="assets/images/WhatsApp Image 2022-10-12 at 9.47.57 PM.jpeg" width="250" height="500"/> |
